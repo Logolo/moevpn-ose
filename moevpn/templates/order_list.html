@@ -34,12 +34,14 @@
 				<td><span class="label label-warning">CANCELLED</span></td>
 				{%endifequal%}
 				<td>
+				{%ifequal vpn_order.status "UNPAID"%}
 				<div class="btn-group">
 				<a class="btn btn-success" href="javascript:void(0)" onclick="javascript:if(confirm('确认支付订单？')){location.href='/vpn/order_payment/{{vpn_order.order_id}}/';}"><i class="icon-shopping-cart icon-white"></i>在线支付</a>
 				<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>				
 				<ul class="dropdown-menu">				
 				<li><a href="javascript:void(0)" onclick="javascript:if(confirm('确认取消订单？')){location.href='/vpn/order_cancel/{{vpn_order.order_id}}/';}"><i class="icon-trash"></i>取消订单</a></li>
 				</ul>				
+				{%endifequal%}
 				</div>
 				</td>
 			</tr>
