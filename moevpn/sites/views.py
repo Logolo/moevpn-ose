@@ -14,13 +14,9 @@ from models import *
 from forms import *
 
 def index(request):
-  plans = []
   announcement = Setting.objects.get(name='announcement')
   news = Setting.objects.get(name='news')
-  for plan in Plan.objects.all():
-    plans.append({
-        'class':plan.name,
-        'description':plan.description})
+  plans = Plan.objects.all()
   return render_to_response('index.html',{
       'plans':plans,
       'announcement':announcement.content,
