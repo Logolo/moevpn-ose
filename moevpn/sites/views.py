@@ -113,20 +113,8 @@ def order_list(request):
   vpn_orders = []
   user = request.user
   orders = Order.objects.filter(user=user)
-  for order in orders:
-    vpn_orders.append({
-        'order_id':order.order_id,
-        'order_time':order.order_time,
-        'username':order.username,
-        'password':order.password,
-        'cycle':order.cycle.detail,
-        'plan':order.plan.detail,
-        'price':order.price,
-        'discount':order.discount,
-        'promotion':order.promotion,
-        'status':order.status})
   return render_to_response("order_list.html",{
-      'vpn_orders':vpn_orders,
+      'orders':orders,
       'user':request.user,
       "message_count":message_count(request.user),
       "ticket_count":ticket_count(request.user),
