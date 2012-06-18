@@ -41,6 +41,10 @@
 	 {%endfor%}
     </table>
     {%else%}
-    <p><span style="color: red; ">没有VPN帐号！</span></p>
+    <div class="alert alert-block">
+	<p class="alert-heading">没有任何帐号</p>
+	您可以添加一个VPN帐号，所有您拥有的VPN帐号都会显示在这里。<br/>
+	并且，在这里您可以查看VPN帐号密码、对帐号进行续费或者取消等操作。
+    </div>
     {%endif%} 
 {%endblock%}
